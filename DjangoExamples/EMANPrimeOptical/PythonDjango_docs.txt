@@ -1,0 +1,108 @@
+========================================================
+Python Module installation commands:
+========================================================
+
+
+
+# Create a virtualenv to isolate our package dependencies locally
+
+/> Install Virtual Wrraper for windows
+# using pip
+pip install virtualenvwrapper-win
+
+# using easy_install
+easy_install virtualenvwrapper-win
+
+# from source
+git clone git://github.com/davidmarble/virtualenvwrapper-win.git
+cd virtualenvwrapper-win
+python setup.py install
+
+
+/> mkvirtualenv MyEnv2 #This will create 'MyEnv2' folder inside (%USERPROFILE%/.virtualenvs OR %USERPROFILE%/Envs)
+/> cd %USERPROFILE%/.Envs/MyEnv2/script
+/> activate
+/> workon # to see the all created virtual env
+/> workon MyEnv2
+C:\Users\sumkuma2\Envs
+
+Example : C:\Users\sumkuma2\Envs
+/> virtualenv env
+source env/bin/activate  # On Windows use `env\Scripts\activate`
+
+# Install Django and Django REST framework into the virtualenv
+/> pip install django
+/> pip install djangorestframework
+/> pip uninstall django
+
+# Set up a new project with a single application
+/> django-admin.py startproject tutorial .  # Note the trailing '.' character
+/> cd tutorial
+/> django-admin.py startapp quickstart
+/> pip list
+
+------------------------------------------------------------------
+To have tow Python version on two virtual Env:
+git clone git://github.com/davidmarble/virtualenvwrapper-win.git
+-> Download virtualenvwrapper-win
+/> cd virtualenvwrapper-win
+python setup.py install
+
+--------- Virtual Env Python 3.4
+
+C:\Users\sumkuma2>mkvirtualenv -p C:\Python34\python.exe MyPython34VirtualEnv
+
+Already using interpreter C:\Python34\python.exe
+Using base prefix 'C:\\Python34'
+New python executable in C:\Users\sumkuma2\Envs\MyPython34VirtualEnv\Scripts\python.exe
+Installing setuptools, pip, wheel...done.
+
+
+(MyPython34VirtualEnv) C:\Users\sumkuma2>workon
+
+Pass a name to activate one of the following virtualenvs:
+==============================================================================
+MyPython34VirtualEnv
+MyPythonEnv1
+------------------------------------------------------------------------------------
+
+
+--------- Virtual Env Python 2.7
+C:\Users\sumkuma2>mkvirtualenv -p C:\Python27\python.exe MyPython27VirtualEnv
+
+Running virtualenv with interpreter C:\Python27\python.exe
+New python executable in C:\Users\sumkuma2\Envs\MyPython27VirtualEnv\Scripts\python.exe
+Installing setuptools, pip, wheel...done.
+
+(MyPython27VirtualEnv) C:\Users\sumkuma2>python
+
+Python 2.7.11 (v2.7.11:6d1b6a68f775, Dec  5 2015, 20:32:19) [MSC v.1500 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+
+
+
+========================================================
+Python Django Porject management commands:
+========================================================
+NOTE: If virtualenv python.exe ,better to use virtualenv python fow below command when running in Eclipse terminal
+>>> python manage.py inspectdb>models.py (for specific tables define in the model.py)
+>>> python manage.py syncdb 
+>>> python manage.py makemigrations
+>>> python manage.py migrate
+>>> python manage.py runserver
+>>> python manage.py createsuperuser
+>>> python manage.py shell #to get python shell
+
+NOTE: On Windows machine
+=> If using virtualenv -> python and django installed, In Windows Envornment variable path , same python version should be pointed
+PATH
+C:\Python27;C:\Python27\Scripts;
+
+------------------------------------
+Find installed Python modules:
+C:/>pip freeze
+C:/>pip freeze | find "cx" (to find specific Python moduel in WINDOWS)
+
+$ pip freeze | grep "cx" (to find specific Python moduel in LINUX)
+
