@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block cpo_prod_superuser %}
+	<div class='well'>
+	  <h2>Cisco Prime Optical user on Host : eon-rtp5-1-l</h2>
+	</div>
+	<table class="table table-striped table-hover ">
+	  <thead>
+	    <tr>
+	      <th>UserID</th>
+	      <th>Username</th>
+	      <th>TypeOfUser</th>
+	      <th>SubTypeOfUser</th>
+	      <th>User Description</th>
+	      <th>OnRamp User</th>
+	      
+	    </tr>
+	  </thead>
+	  <tbody>
+	{% for cpo_prod_superuser in cpo_prod_superusers %} 
+		<tr>
+	    	<td>{{ cpo_prod_superuser.userid }}</td>
+	    	<td>{{ cpo_prod_superuser.username }}</td>
+	    	<td>{{ cpo_prod_superuser.typeofuser }}</td>
+	    	<td>{{ cpo_prod_superuser.subtypeofuser }}</td>
+	    	<td>{{ cpo_prod_superuser.userdescription }}</td>
+	   
+  		{% if cpo_prod_superuser.username in cpo_onramp_prod_superusers %}
+  			<td>Yes</td>
+  		{% else %}
+  			<td>No</td>
+  		{% endif %}	
+	    </tr>
+	{% endfor %}
+	   </tbody>
+	</table>
+  	
+{% endblock %} 

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block cpo_prod_operator %}
+	
+	<div class="panel panel-primary">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">Cisco Prime Optical : Operator</h3>
+  		</div>
+  		<div class="panel-body">
+    		<p>This page provides the superset list of all user avaiblable with the access role Operator on Cisco Prime Optical (prod) servers :<strong> eon-rch1-1-l & eon-rtp5-1-l</strong>  and in OnRamp under resource <strong>cpo-prod-superuser</strong></p>
+			<p><span class="label label-primary">Operator  :</span> A Super User has all user level permission.</p>
+			<p><span class="label label-primary">Cisco Prime Optical on (prod) :</span> <a href="https://eon-rch1-1-l.cisco.com/OpticalPortal/" target="_blank">eon-rch1-1-l</a>   and   <a href="https://eon-rtp5-1-l.cisco.com/OpticalPortal/" target="_blank">eon-rtp5-1-l</a></p>
+			<p><span class="label label-primary">View OnRamp resource :</span> <a href="http://eman-core.cisco.com/SERVICE/OnRamp/search/cpo-prod-operator" target="_blank">cpo-prod-operator </a></p>
+  		</div>
+	</div>
+	<hr/>
+	<table class="table table-striped table-hover ">
+	  <thead>
+	    <tr>
+	      <th>No.</th>
+	      <th>Username</th>
+	      <th>On- eon-rch1-1-l</th>
+	      <th>On- eon-rtp5-1-l</th>
+	      <th>OnRamp User</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  
+	{% for user in merged_prod1_pord2_userlist %}
+		<tr>
+	    	<td><span class='badge'>{{ forloop.counter }}</span></td>
+	    	<td>{{ user }}</td>
+	    		    
+	    {% if user in cpo_prod1_operators %}
+  			<td><span class="label label-success label-as-badge">Operator</span></td>
+  		{% else %}
+  			<td><span class="label label-danger">NA</span></td>
+  		{% endif %}	
+  		
+  		{% if user in cpo_prod2_operators %}
+  			<td><span class="label label-success label-as-badge">Operator</span></td>
+  		{% else %}
+  			<td><span class="label label-danger">NA</span></td>
+  		{% endif %}	
+	    	
+  		{% if user in cpo_onramp_prod_operators %}
+  			<td><span class="label label-success label-as-badge">Operator</span></td>
+  		{% else %}
+  			<td><span class="label label-danger">NA</span></td>
+  		{% endif %}	
+	    </tr>
+	    
+	{% endfor %}
+	   </tbody>
+	</table>
+  
+{% endblock %} 

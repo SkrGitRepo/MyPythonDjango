@@ -1,0 +1,94 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>EMANPrimeOpticalUsers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" media="screen">  -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel='stylesheet'>
+    <script src="{% static 'js/jquery-1.11.3/jquery-1.11.3.min.js' %}"></script>
+    <script src="{% static 'js/jquery-sparklines-2.1.2/jquery.sparkline.min.js' %}"></script>
+
+  </head>
+
+  <body>
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/prime/optical">EMAN Prime Optical</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+      <ul class="nav navbar-nav">
+        <!--  <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li> -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">DEV-Users <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/prime/optical/cpo-prod-superuser">cpo-dev-Superuser</a></li>
+            <li class="divider"></li>
+            <li><a href="/prime/optical/cpo-prod-superuser">cpo-dev-sysdamin</a></li>
+            <li class="divider"></li>
+            <li><a href="/prime/optical/cpo-prod-superuser">cpo-dev-networkadmin</a></li>
+            <li class="divider"></li>
+            <li><a href="/prime/optical/cpo-prod-operator">cpo-dev-operator</a></li>
+            <li class="divider"></li>
+            <li><a href="/prime/optical/cpo-prod-superuser">cpo-dev-provisioner</a></li>
+          </ul>
+        </li>
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">PROD-Users <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/prime/optical/cpo-prod-superuser">cpo-prod-superuser</a></li>
+            <li class="divider"></li>
+            <li><a href="/prime/optical/cpo-prod-superuser">cpo-prod-sysadmin</a></li>
+            <li class="divider"></li>
+            <li><a href="/prime/optical/cpo-prod-superuser">cpo-prod-networkadmin</a></li>
+            <li class="divider"></li>
+            <li><a href="/prime/optical/cpo-prod-operator">cpo-prod-operator</a></li>
+            <li class="divider"></li>
+            <li><a href="/prime/optical/cpo-prod-superuser">cpo-prod-provisioner</a></li>
+          </ul>
+        </li>
+      </ul>
+  
+    </div>
+  </div>
+  </nav>
+  
+  <div class="container">
+        
+      <div class="row">
+         <p>{% block homepage %} {% endblock %} </p>
+         <p>{% block cpo_prod_superuser %} {% endblock %} </p>
+         <p>{% block cpo_prod_operator %} {% endblock %} </p>
+       
+      </div>
+      <hr>
+
+      <footer align='bottom'>
+        <p>&copy; Cisco Infosystems. 2016</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+    
+  </body>
+</html>

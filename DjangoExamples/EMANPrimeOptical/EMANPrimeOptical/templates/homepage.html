@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block homepage %}
+<div class='well'>
+  <h2>EMAN Onramp - Cisco Prime Optical user provisioning report</h2>
+    <p>This is a report tool developed to view all <b>Cisco Prime Optical (CPO)</b> users, provisioned from <b>EMAN-OnRamp</b> tool.
+            from here you can view report for CPO users provisioned from EMAN-Onramp based on specific CPO User-Role for which respective Onramp resources(dev/prod) are available on EMAN-Onramp side for subscription.
+     </p>
+     <p> Cisco Prime Optical users are categorized into bellow user-roles:
+        <ol>
+           <li>Superuser</li>
+           <li>System Admin</li>
+           <li>Operator</li>
+           <li>Provisioner</li>
+           <li>Network Admin</li>
+         </ol>
+     </p>
+</div>
+  	
+{% endblock %} 
