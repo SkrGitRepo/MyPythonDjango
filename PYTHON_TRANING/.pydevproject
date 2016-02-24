@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse-pydev version="1.0"?><pydev_project>
+<pydev_pathproperty name="org.python.pydev.PROJECT_SOURCE_PATH">
+<path>/${PROJECT_DIR_NAME}</path>
+<path>/${PROJECT_DIR_NAME}/10_PythonDictionary</path>
+<path>/${PROJECT_DIR_NAME}/8_PythonLists</path>
+<path>/${PROJECT_DIR_NAME}/14_PythonFilesIO</path>
+<path>/${PROJECT_DIR_NAME}/2_PythonVariableTypes</path>
+<path>/${PROJECT_DIR_NAME}/3_PythonBasicOperators</path>
+<path>/${PROJECT_DIR_NAME}/4_PythonDecisionMaking</path>
+<path>/${PROJECT_DIR_NAME}/5_PythonLoops</path>
+<path>/${PROJECT_DIR_NAME}/6_PythonNumbers</path>
+<path>/${PROJECT_DIR_NAME}/7_PythonStrings</path>
+<path>/${PROJECT_DIR_NAME}/11_PythonDate&amp;Time</path>
+<path>/${PROJECT_DIR_NAME}/12_PythonFunction</path>
+<path>/${PROJECT_DIR_NAME}/13_PythonModules</path>
+<path>/${PROJECT_DIR_NAME}/16_PythonRegularExpressions</path>
+<path>/${PROJECT_DIR_NAME}/17_PythonDatabaseAccess</path>
+<path>/${PROJECT_DIR_NAME}/20_PythonNetworking</path>
+<path>/${PROJECT_DIR_NAME}/19_PythonMultithreading</path>
+<path>/${PROJECT_DIR_NAME}/18_PythonXMLProcessing</path>
+<path>/${PROJECT_DIR_NAME}/21_PythonGUIProgramming</path>
+<path>/${PROJECT_DIR_NAME}/CG_Python_Training</path>
+</pydev_pathproperty>
+<pydev_property name="org.python.pydev.PYTHON_PROJECT_VERSION">python 2.7</pydev_property>
+<pydev_property name="org.python.pydev.PYTHON_PROJECT_INTERPRETER">MyEnvPytho27</pydev_property>
+</pydev_project>

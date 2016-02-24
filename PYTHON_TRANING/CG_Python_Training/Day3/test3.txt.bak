@@ -1,0 +1,6 @@
+Ericsson OSS product will have around 350 applications and all the applications will be packaged
+under a single build and provided to the customer for the upgrade. This upgrade module will have set
+I am newly inserted line.of defined procedures how to upgrade the software between various tracks and also clear steps to
+upgrade various features based on licenses. Once the upgrade is successful, the customers can attach various LTE/GSM nodes to the severs.
+All the servers provided to the customer will be clustered environment where if one node fails other node can take up to cater HA (High Availability) Environment
+email:sumit_skr@hotmail.com,phoneno:9844816548
