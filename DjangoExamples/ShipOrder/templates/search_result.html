@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Search Result</title>
+</head>
+<body>
+	<div>
+		{% if product and  query %}
+		<p align='center'><b>Matching records found for your item :</b> {{ query }} </p> 
+		<table align='center'>
+			<tr><td>
+			{% for item in product %}
+				<li>{{ item }}</li>
+				
+			{% endfor %}
+			</td></tr>
+		{% endif %}
+		{{ fields.as_table }}
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ordering Notice</title>
+</head>
+<body>
+	<div align='right'>
+		<a href='http://localhost:8000/home'><b>Home Page</b></a>
+	</div>
+	<div>
+	<h1>Order Confirmation Notice</h1>
+	<p>Dear {{ person_name }},</p>
+	<p>Thanks for palcing your order from <b>{{ company }}</b>.
+	It's scheduled to ship on {{ ship_date|date:"Fj,Y" }}.
+	</p>
+	<p>Here are the items you have ordered:</p>
+	<ul>
+	{% for item in item_list %}
+		<li>{{ item }}</li>
+	{% endfor %}
+	</ul>
+	{% if ordered_warrenty %}
+	<p>Your warrenty information will be included in the packeging.</p>
+	{% else %}
+	<p>You did not order a warrenty, so your are on your own when the products inevitably working.</p>
+	{% endif %}
+	<p>Sincerely,<br />
+	{{ company }}
+	</p>
+	</div>
+</body>
+</html>
