@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+<!--<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Your Blog</title>
+<script type="text/javascript">
+  document.getElementById('bdate').value = Date();
+</script>
+</head>
+<body>
+	 <div>
+	  <p><b>Add your blogs:</b></p>
+	  <p> -->
+	  <!-- <form action="/saveblog/" method="post"> -->
+	  <!-- <form action="/saveblog/" method="get">
+	  <table>
+	  <tr>
+	  		<td><label>Author :</label><input type='text' name='bauthor'></input></td></tr>
+			<tr><td><label>Title : </label><input type='text' name='btitle'></input></td></tr><tr>
+			<td><label>Blog content: </label><input type='textfield' name='bcontent'></input></td></tr><tr>
+			<td><label>Blog date: </label> <input id="bdate" name="bdate"></td></tr><tr>
+			<td><input type='submit' value='Add Blog'></input></td>
+	  </tr>
+	  {% if message %}
+	  	<tr><td>SUCCESS :{{ message }}</td></tr>
+	  {% endif %}
+	  </table>
+	   
+	  </form> 
+	 </p>
+	</div> -->
+	{% if form %}
+	{% block add_blog_content %}
+	<h1><span class="label label-primary">Add your blogs:</span></h1>
+	<form action="/saveblog/" method="post"> {% csrf_token %}
+		<!-- <label>Author :</label><input type='text' name='bauthor'></input>
+		<label>Title : </label><input type='text' name='btitle'></input>
+		<label>Blog content: </label><input type='textfield' name='bcontent'></input>
+		<label>Blog date: </label> <input id="bdate" name="bdate"> -->
+		<table border="0">
+		{{ form.as_table }}
+		</table>
+	 <button type="submit" class="btn btn-success">Add Blog</button>
+	</form>
+	{% endblock %}
+	{% endif %}
+	
+	
+<!-- </body>
+</html> -->

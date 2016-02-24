@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="css/style.css"></link>
+<title>First Blog</title>
+</head>
+<body>
+<div class='container'> -->
+	<!-- <h1>First Blog</h1> -->
+	{% block view_post_content %}
+		
+		<h1><span class="label label-primary">Showing all Blogs....</span></h1>
+		<hr />
+		{% for post in posts %}
+			<div class='post'>
+			<h2> {{ post.title }}</h2>
+			<h3>Posted on {{ post.timestamp }} by author {{ post.author }}</h3>
+			<p> {{ post.bodytext }}</p>
+			</div>
+			<hr />
+		{% endfor %}
+	{% endblock %}
+	
+	{% block view_blog_link %}
+		<a class="btn btn-primary btn-lg" href="http://localhost:8000/viewblog" role="button">View Blogs &raquo;</a>
+		<a class="btn btn-primary btn-lg" href="http://localhost:8000/addblog" role="button">Add Blogs &raquo;</a>
+	{% endblock %}
+	
+<!-- 	
+</div>
+</body>
+</html> -->
+
+

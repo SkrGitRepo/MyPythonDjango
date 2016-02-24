@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body> -->
+{% block register_user_block %}
+
+<div class="col-md-8">
+	  <h3><span class="label label-default">User Sign-up: </span></h3>
+      <div class="row">
+      	<form action='/saveuser/' method='POST'>
+      	{% csrf_token %}
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="uname" name="uname" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="contactno" name="contactno" placeholder="Contact No" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="password" name="password" placeholder="Password" type="password" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="emailid" name="emailid" placeholder="Email ID" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="address" name="address" placeholder="Address" rows="5"></textarea>
+      <div class="col-md-12 form-group">
+          <p><button type="submit" class="btn btn-success">Save User</button></p>
+          <!-- <button class="btn pull-right" type="submit">Send</button> -->
+      </div>
+      </form>
+      </div>
+ </div>
+{% endblock %}
+{% if SUCCESS %}
+	<h1>SUCCESS</h1>
+{% endif %}
+
+<!-- </body>
+</html> -->
