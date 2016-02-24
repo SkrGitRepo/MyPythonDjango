@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block contact_page %}
+
+<!-- content -->
+<div class="container">
+<div class="main">
+<div class="contact">				
+					<div class="contact_info">
+						<h2>get in touch</h2>
+			    	 		<div class="map">
+					   			<iframe src="https://www.google.co.in/maps/place/18th+Cross+Rd,+1st+Stage,+Kumaraswamy+Layout,+Bengaluru,+Karnataka+560078/@12.907872,77.5607416,17z/data=!4m2!3m1!1s0x3bae156294f9492b:0xe7984a0dcf391d35" width="100%" height="250" frameborder="0" style="border:0"></iframe>
+					   		</div>
+      				</div>
+				  <div class="contact-form">
+			 	  	 	<h2>Contact Us</h2>
+			 	 	    <form method="post" action="contact-post.html">
+					    	<div>
+						    	<span><label>Name</label></span>
+						    	<span><input name="userName" type="text" class="textbox"></span>
+						    </div>
+						    <div>
+						    	<span><label>E-mail</label></span>
+						    	<span><input name="userEmail" type="text" class="textbox"></span>
+						    </div>
+						    <div>
+						     	<span><label>Mobile</label></span>
+						    	<span><input name="userPhone" type="text" class="textbox"></span>
+						    </div>
+						    <div>
+						    	<span><label>Subject</label></span>
+						    	<span><textarea name="userMsg"> </textarea></span>
+						    </div>
+						   <div>
+						   		<span><input type="submit" class="" value="Submit us"></span>
+						  </div>
+					    </form>
+				    </div>
+  				<div class="clearfix"></div>		
+			  </div>
+</div>
+</div>
+{% endblock %}
