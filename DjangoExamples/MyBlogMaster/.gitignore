@@ -1,0 +1,5 @@
+*.sqlite3
+*.sqlite
+*.pyc
+*.xml
+local_settings.py
