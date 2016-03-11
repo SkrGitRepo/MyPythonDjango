@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block search_cpo_user %}
+<form class='navbar-form navbar-right' role='search' method='POST'>
+  <div class='form-group'>
+     <select class='form-control' title='Select a search criteria' id='select' name='criteria'>
+        <option value='search-option'>Search Option</option>
+        <option selected>cpo-dev-superuser<option>
+      	<option selected>cpo-dev-sysadmin<option>
+      	<option selected>cpo-dev-networkadmin<option>
+      	<option selected>cpo-dev-operator<option>
+      	<option selected>cpo-dev-provisioner<option>
+      	<option selected>cpo-prod-superuser<option>
+      	<option selected>cpo-prod-sysadmin<option>
+      	<option selected>cpo-prod-networkadmin<option>
+      	<option selected>cpo-prod-operator<option>
+      	<option selected>cpo-prod-provisioner<option>
+     </select>
+     <input class='form-control' placeholder='Username(cecid)' type='text' name='string'>
+     <button type='submit' class='btn btn-default' name='action' value='searchusr'>Search</button>
+ </div>
+</form>
+{% endblock %}

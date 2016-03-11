@@ -1,14 +1,87 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response,render
 from django.template import Context,loader
 from django.http.response import HttpResponse
 import urllib2
 import cx_Oracle
 
+
+
 from EMANPrimeOptical.UserProvReporter.models import USER_TABLE
+from django.template.context_processors import request
 
 # Create your views here.
 def home(request):
     return render_to_response('homepage.html')
+
+def search_user(request):
+    
+    if request.method=='POST':
+        userid = request.POST.get('userid');
+        userrole = request.POST.get('userrole')
+        #return render_to_response('search_result.html', {'userid':userid, 'userrole':userrole})
+        return render(request,'search_result.html', {'userid':userid, 'userrole':userrole})
+    
+    elif request.method=='GET':
+        if 'userid' in request.GET and request.GET['userid']:
+            userid= request.GET['userid']
+            userrole=request.GET['userrole']
+            return render_to_response('search_result.html', {'userid':userid, 'userrole':userrole})
+        else:
+            error_message = 'Please provide valid userid'
+            return render_to_response('search_result.html', {'error_msg':error_message})
+    
+        
+    
+def find_cpo_user(request,lifecycle,usr_subtype):
+
+    #if lifecycle == "prod" and usr_subtype == '1':
+    if lifecycle == "prod":
+        #tmpl=loader.get_template("searchpage.html")
+        
+        get_usrlist_from_cpo_prd2 = USER_TABLE.objects.filter(subtypeofuser= usr_subtype ).order_by('userid')
+        cpo_prod2_users=[]
+        for user in get_usrlist_from_cpo_prd2:
+            cpo_prod2_users.append(user.username)
+    
+        if usr_subtype == '1':
+            onramp_provisioned_superusers = get_cpo_provisioned_userlist('cpo-prod-superuser')
+            
+            '''Passing CPO prod servername and cpo usersubtype (user role - SuperUser) '''
+            cpo_prod1_users = get_cpo_db_connection('eon-rch1-1-l',1);
+            
+            merged_prod_superusers = merge_userlist(cpo_prod1_users,cpo_prod2_users,onramp_provisioned_superusers)
+            
+            cont = Context( {'cpo_prod2':cpo_prod2_users,'cpo_prod1_superusers':cpo_prod1_users,'cpo_prod2_superusers':cpo_prod2_users,
+                     'cpo_onramp_prod_superusers':onramp_provisioned_superusers,'merged_prod1_pord2_userlist':merged_prod_superusers} )
+            
+            tmpl=loader.get_template("cpo_prod_superuser.html")
+            
+            return HttpResponse(tmpl.render(cont))
+        else:
+            error_msg ="Not a valid User Role of CPO"
+            tmpl=loader.get_template("searchpage.html")
+            cont = Context({'error_msg':error_msg})
+             
+            return HttpResponse(tmpl.render(cont))
+        
+        #cont = Context({'user_role':usr_subtype,'cpo_instance':lifecycle});
+        #return HttpResponse(tmpl.render(cont))
+        
+        '''else:
+            tmpl=loader.get_template("cpo_prod_superuser.html")
+            return HttpResponse(tmpl.render(cont))
+        '''
+    else:
+        error_msg ="Not a valid instace of CPO"
+        tmpl=loader.get_template("searchpage.html")
+        cont = Context({'error_msg':error_msg});
+             
+        return HttpResponse(tmpl.render(cont))
+        
+        
+    
+    
+       
 
 def cpo_prod_superuser(request):
     #cpo_user_list = USER_TABLE.objects.all()
@@ -56,6 +129,9 @@ def cpo_prod_sysadmin(request):
                      'cpo_onramp_prod_sysadmins':onramp_provisioned_sysadmins,'merged_prod1_pord2_userlist':merged_prod_sysadmins} )
     
     return HttpResponse(tmpl.render(cont))
+
+
+#---------------------------------------------------------------
 
 def cpo_prod_networkadmin(request):
     

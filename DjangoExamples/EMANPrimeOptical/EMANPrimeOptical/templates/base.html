@@ -48,7 +48,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">PROD-Users <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="/prime/optical/cpo-prod-superuser">cpo-prod-superuser</a></li>
+            <!-- <li><a href="/prime/optical/cpo-prod-superuser/">cpo-prod-superuser</a></li>  -->
+            <li><a href="/prime/optical/prod/1">cpo-prod-superuser</a></li>
             <li class="divider"></li>
             <li><a href="/prime/optical/cpo-prod-superuser">cpo-prod-sysadmin</a></li>
             <li class="divider"></li>
@@ -60,7 +61,59 @@
           </ul>
         </li>
       </ul>
-  
+      
+	  <!--  <form class='navbar-form navbar-right' role='search' action='/prime/optical/search/user' method='POST'> -->
+	  <form class='navbar-form navbar-right' role='search' action='/prime/optical/search/user' method='GET'>
+	  {% csrf_token %}
+	  	 <div class='form-group'>
+		  	 <select class='form-control' title='Select a search criteria' id='select' name='userrole'>
+		        <option>Search Option</option>
+		        {% if userrole == "all_usr_role"  %}
+		        	<option value='all_usr_role' selected>All-UserRole</option>
+		        {% elif userrole == "cpo-dev-superuser"  %}
+		        	<option value='cpo-dev-superuser' selected>As-Dev-Superuser</option>
+		        {% elif userrole == "cpo-dev-sysadmin" %}
+		        	<option value='cpo-dev-sysadmin' seleted>As-Dev-Sysadmin</option>
+		        {% elif userrole == "cpo-dev-networkadmin" %}
+		        	<option value='cpo-dev-networkadmin' selected>As-Dev-NetworkAdmin</option>
+		        {% elif userrole == "cpo-dev-operator" %}
+		        	<option value='cpo-dev-operator' selected>As-Dev-Operator</option>
+		        {% elif userrole == "cpo-dev-provisioner" %}
+		        	<option value='cpo-dev-provisioner' selected>As-Dev-Provisioner</option>
+		        {% elif userrole == "cpo-prod-superuser"  %}
+		        	<option value='cpo-prod-superuser' selected>As-Prod-Superuser</option>
+		        {% elif userrole == "cpo-prod-sysadmin" %}
+		        	<option value='cpo-prod-sysadmin' seleted>As-Prod-Sysadmin</option>
+		        {% elif userrole == "cpo-prod-networkadmin" %}
+		        	<option value='cpo-prod-networkadmin' selected>As-Prod-NetworkAdmin</option>
+		        {% elif userrole == "cpo-prod-operator" %}
+		        	<option value='cpo-prod-operator' selected>As-Prod-Operator</option>
+		        {% elif userrole == "cpo-prod-provisioner" %}
+		        	<option value='cpo-prod-provisioner' selected>As-Prod-Provisioner</option>
+		        {% endif %}
+		        <option value='all_usr_role'>All-UserRole</option>
+		        <option value='cpo-dev-superuser'>As-Dev-Superuser</option>
+		      	<option value='cpo-dev-sysadmin'>As-Dev-Sysadmin</option>
+		      	<option value='cpo-dev-networkadmin'>As-Dev-NetworkAdmin</option>
+		      	<option value='cpo-dev-operator'>As-Dev-Operator</option>
+		      	<option value='cpo-dev-provisioner'>As-Dev-provisioner</option>
+		      	<option value='cpo-prod-superuser'>As-Prod-superuser</option>
+		      	<option value='cpo-prod-sysadmin'>As-Prod-sysadmin</option>
+		      	<option value='cpo-prod-networkadmin'>As-Prod-networkadmin</option>
+		      	<option value='cpo-prod-operator'>As-Prod-operator</option>
+		      	<option value='cpo-prod-provisioner'>As-Prod-provisioner</option>
+		      </select>
+	     </div>
+	     <div class="form-group">
+		     {% if userid %}
+		     	<input class='form-control' type='text' name='userid' value={{ userid }}>
+		     {% else %}
+		     	<input class='form-control' placeholder='User Cisco ID' type='text' name='userid'>
+		     {% endif %}
+		     
+		     <button type='submit' class='btn btn-default' name='action' value='searchuser'>Search</button>
+	     </div>
+	 </form>
     </div>
   </div>
   </nav>
@@ -71,7 +124,8 @@
          <p>{% block homepage %} {% endblock %} </p>
          <p>{% block cpo_prod_superuser %} {% endblock %} </p>
          <p>{% block cpo_prod_operator %} {% endblock %} </p>
-       
+         <p>{% block search_result %} {% endblock %}</p>
+         
       </div>
       <hr>
 
