@@ -17,6 +17,9 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView,UpdateView,DeleteView
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 
 
@@ -51,3 +54,9 @@ urlpatterns = [
     url(r'^site_media/(?P<path>.*)$', 'django.views.static.serve',{'document_root': 'C:/DjangoPythonWorkSpace/EmpMgmtOracle/mysite/EmpMgmtApp/static'}),
     #url(r'^mysite/', include('mysite.foo.urls')),
 ]
+
+#if settings.DEBUG:
+#    urlpatterns += static(settings.STATIC_URL,
+#                          document_root=settings.STATIC_ROOT)
+#    urlpatterns += static(settings.MEDIA_URL,
+#                          document_root=settings.MEDIA_ROOT)
