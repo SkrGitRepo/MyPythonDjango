@@ -31,33 +31,32 @@
         <!--  <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
         <li><a href="#">Link</a></li> -->
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">DEV-Users <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">All-DEV-Users <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="/prime/optical/cpo-prod-superuser">cpo-dev-Superuser</a></li>
+            <li><a href="/prime/optical/cpo-dev-superuser">cpo-dev-Superuser</a></li>
             <li class="divider"></li>
-            <li><a href="/prime/optical/cpo-prod-superuser">cpo-dev-sysdamin</a></li>
+            <li><a href="/prime/optical/cpo-dev-sysadmin">cpo-dev-sysdamin</a></li>
             <li class="divider"></li>
-            <li><a href="/prime/optical/cpo-prod-superuser">cpo-dev-networkadmin</a></li>
+            <li><a href="/prime/optical/cpo-dev-networkadmin">cpo-dev-networkadmin</a></li>
             <li class="divider"></li>
-            <li><a href="/prime/optical/cpo-prod-operator">cpo-dev-operator</a></li>
+            <li><a href="/prime/optical/cpo-dev-operator">cpo-dev-operator</a></li>
             <li class="divider"></li>
-            <li><a href="/prime/optical/cpo-prod-superuser">cpo-dev-provisioner</a></li>
+            <li><a href="/prime/optical/cpo-dev-provisioner">cpo-dev-provisioner</a></li>
           </ul>
         </li>
         
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">PROD-Users <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">All-PROD-Users <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <!-- <li><a href="/prime/optical/cpo-prod-superuser/">cpo-prod-superuser</a></li>  -->
-            <li><a href="/prime/optical/prod/1">cpo-prod-superuser</a></li>
+            <li><a href="/prime/optical/cpo-prod-superuser/">cpo-prod-superuser</a></li>
             <li class="divider"></li>
-            <li><a href="/prime/optical/cpo-prod-superuser">cpo-prod-sysadmin</a></li>
+            <li><a href="/prime/optical/cpo-prod-sysadmin">cpo-prod-sysadmin</a></li>
             <li class="divider"></li>
-            <li><a href="/prime/optical/cpo-prod-superuser">cpo-prod-networkadmin</a></li>
+            <li><a href="/prime/optical/cpo-prod-networkadmin">cpo-prod-networkadmin</a></li>
             <li class="divider"></li>
             <li><a href="/prime/optical/cpo-prod-operator">cpo-prod-operator</a></li>
             <li class="divider"></li>
-            <li><a href="/prime/optical/cpo-prod-superuser">cpo-prod-provisioner</a></li>
+            <li><a href="/prime/optical/cpo-prod-provisioner">cpo-prod-provisioner</a></li>
           </ul>
         </li>
       </ul>
@@ -65,11 +64,18 @@
 	  <!--  <form class='navbar-form navbar-right' role='search' action='/prime/optical/search/user' method='POST'> -->
 	  <form class='navbar-form navbar-right' role='search' action='/prime/optical/search/user' method='GET'>
 	  {% csrf_token %}
+	  	 <div class="form-group">
+		     {% if userid %}
+		     	<input class='form-control' type='text' name='userid' value={{ userid }}>
+		     {% else %}
+		     	<input class='form-control' placeholder='User Cisco ID' type='text' name='userid'>
+		     {% endif %}
+		 </div>
 	  	 <div class='form-group'>
 		  	 <select class='form-control' title='Select a search criteria' id='select' name='userrole'>
 		        <option>Search Option</option>
-		        {% if userrole == "all_usr_role"  %}
-		        	<option value='all_usr_role' selected>All-UserRole</option>
+		        {% if userrole == "cpo-all-userrole"  %}
+		        	<option value='cpo-all-userrole' selected>All-UserRole</option>
 		        {% elif userrole == "cpo-dev-superuser"  %}
 		        	<option value='cpo-dev-superuser' selected>As-Dev-Superuser</option>
 		        {% elif userrole == "cpo-dev-sysadmin" %}
@@ -91,7 +97,7 @@
 		        {% elif userrole == "cpo-prod-provisioner" %}
 		        	<option value='cpo-prod-provisioner' selected>As-Prod-Provisioner</option>
 		        {% endif %}
-		        <option value='all_usr_role'>All-UserRole</option>
+		        <option value='cpo-all-userrole'>All-UserRole</option>
 		        <option value='cpo-dev-superuser'>As-Dev-Superuser</option>
 		      	<option value='cpo-dev-sysadmin'>As-Dev-Sysadmin</option>
 		      	<option value='cpo-dev-networkadmin'>As-Dev-NetworkAdmin</option>
@@ -103,15 +109,8 @@
 		      	<option value='cpo-prod-operator'>As-Prod-operator</option>
 		      	<option value='cpo-prod-provisioner'>As-Prod-provisioner</option>
 		      </select>
-	     </div>
-	     <div class="form-group">
-		     {% if userid %}
-		     	<input class='form-control' type='text' name='userid' value={{ userid }}>
-		     {% else %}
-		     	<input class='form-control' placeholder='User Cisco ID' type='text' name='userid'>
-		     {% endif %}
-		     
-		     <button type='submit' class='btn btn-default' name='action' value='searchuser'>Search</button>
+		      
+		      <button type='submit' class='btn btn-default' name='action' value='searchuser'>Search</button>
 	     </div>
 	 </form>
     </div>
@@ -122,8 +121,8 @@
         
       <div class="row">
          <p>{% block homepage %} {% endblock %} </p>
-         <p>{% block cpo_prod_superuser %} {% endblock %} </p>
-         <p>{% block cpo_prod_operator %} {% endblock %} </p>
+         <p>{% block cpo_prod_users %} {% endblock %} </p>
+         <p>{% block cpo_dev_users %} {% endblock %} </p>
          <p>{% block search_result %} {% endblock %}</p>
          
       </div>
