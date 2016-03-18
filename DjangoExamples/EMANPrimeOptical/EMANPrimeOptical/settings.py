@@ -76,6 +76,7 @@ WSGI_APPLICATION = 'EMANPrimeOptical.wsgi.application'
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 DATABASES = {
+             
     'default': {
         'ENGINE': 'django.db.backends.oracle',
         'NAME': 'OPTDB',
@@ -83,7 +84,47 @@ DATABASES = {
         'PASSWORD': 'Ctm2010emb!',
         'HOST': '173.37.236.196',
         'PORT': '1521',
-    }
+    },
+             
+    'eon_rch1_1_l':{
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'OPTDB',
+        'USER': 'ctmanager',
+        'PASSWORD': 'Ctm2010emb!',
+        'HOST': '64.102.6.158',
+        'PORT': '1521',
+    },
+             
+    'eon_rtp5_1_l':{
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'OPTDB',
+        'USER': 'ctmanager',
+        'PASSWORD': 'Ctm2010emb!',
+        'HOST': '173.37.236.196',
+        'PORT': '1521',
+    },
+             
+    'eon_rtp3_1_l':{
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'PYTHONDB',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '',
+    },
+             
+    'eon_rtp3_2_l':{
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'JAVADB',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '',
+    },         
+    
+             
+    
+    
 }
 
 
@@ -113,3 +154,37 @@ if DEBUG:
     STATICFILES_DIRS = (
          os.path.join(os.path.dirname(BASE_DIR),"EMANPrimeOptical/EMANPrimeOptical","static"),
     ) 
+    
+    
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'C:\Users\sumkuma2\git\MyPythonDjango\DjangoExamples\EMANPrimeOptical\EMANPrimeOptical.log',
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers':['file'],
+            'propagate': True,
+            'level':'DEBUG',
+        },
+        'MYAPP': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+        },
+    }
+}
