@@ -32,6 +32,27 @@ else:
     print "No match!!"
 
 
+line2 = "Mailer 'cpo-prod-networkadmin' not found"
+matchObj = re.match( r'not found', line2, re.M|re.I)
+if matchObj:
+    print "****** match --> matchObj.group() : ",matchObj.group()
+else:
+    print "***** No match!!"
+
+pattern =re.compile('not found') #+:Matches 1 or more occurrence of preceding expression.
+m=pattern.search(line2)
+if m:
+    print m.group()
+    print "result found"
+    #print m.span()
+else :
+    "no search result"
+    
+print "------------------------------------------"
+
+
+
+
 pattern =re.compile('\d{10}') #+:Matches 1 or more occurrence of preceding expression.
 m=pattern.match('Mobile 9844816548 email sumit@gmail.com 8861733377 skr@gmail.com')
 print m.group()

@@ -1,0 +1,56 @@
+processing: -- INC000034190118
+processing: -- INC000034190118
+processing: -- INC000034190118
+processing: -- INC000034274937
+processing: -- INC000034165209
+processing: -- INC000034165209
+processing: -- INC000033950558
+processing: -- INC000033394842
+processing: -- INC000033394842
+processing: -- INC000033394842
+processing: -- INC000033394842
+processing: -- INC000033394842
+processing: -- INC000033394842
+processing: -- INC000034190186
+processing: -- INC000034190186
+processing: -- INC000034190186
+processing: -- INC000034190186
+processing: -- INC000033787985
+processing: -- INC000034133948
+processing: -- INC000034133948
+processing: -- INC000034133948
+processing: -- INC000034133948
+processing: -- INC000034116336
+processing: -- INC000034116336
+processing: -- INC000034116336
+processing: -- INC000034116336
+processing: -- INC000034091636
+processing: -- INC000034091636
+processing: -- INC000034091636
+processing: -- INC000034081776
+processing: -- INC000034081776
+processing: -- INC000033981001
+processing: -- INC000033879418
+processing: -- INC000033879418
+processing: -- INC000033879418
+processing: -- INC000033879418
+processing: -- INC000033811217
+processing: -- INC000033811217
+processing: -- INC000033811217
+processing: -- INC000033697874
+processing: -- INC000033697874
+processing: -- INC000033671626
+processing: -- INC000033697874
+processing: -- INC000033697874
+processing: -- INC000033697874
+processing: -- INC000033697874
+processing: -- INC000033697874
+processing: -- INC000033697874
+processing: -- INC000033711698
+processing: -- INC000034103935
+{1: [['INC'], ['reference'], ['Case INC'], ['order'], ['case'], ['Status'], ['indicating'], ['case'], ['question'], ['issue'], ['contact'], ['page'], ['telephone'], ['occur'], ['wit day period Kindly'], ['valuable feedback'], ['handling'], ['case'], ['enable'], ['Warm'], ['reference'], ['reported order'], ['dropped case'], ['receive indicating'], ['question'], ['contact'], ['telephone'], ['re-open occur'], ['handling']], 2: [['SO-SS'], ['IB'], ['CC-SHK Promise Date Date'], ['Delivery Creation Date PPR'], ['WO_TRANSACTED Ship Confirmation Null PR'], ['IB'], ['Null'], ['reporetd order'], ['plan'], ['due'], ['performance issue'], ['pending due']], 3: [['INC URGENT-APAC-SHK so-ss'], ['drop'], ['INC URGENT-APAC-SHK Kindly'], ['order'], ['plan'], ['INC URGENT-APAC-SHK Cisco'], ['Description'], ['SS'], ['FCD-date PID Missing'], ['PR SLM2016T-AU'], ['reported order']], 4: [['hold'], ['order'], ['mentioned order'], ['carton'], ['Packout'], ['order'], ['order'], ['eligible'], ['issue'], ['hold'], ['processed mentioned order'], ['send Packout'], ['progress order'], ['shipping eligible'], ['issue']], 5: [['SO-SS'], ['CDC-SLCROERMOND Promise Date Order Copy Date'], ['ASN'], ['DSLC'], ['OB'], ['OSLC'], ['DSLC'], ['date Delivery creation date'], ['OTM Planning Date Case Creation Date PDT PST'], ['received date Delivery creation date']], 6: [['present'], ['order'], ['mentioned detail Cuerrently'], ['hold message'], ['order PO_NUMBER message_id b2b_mfg_status'], ['date'], ['Date'], ['ha'], ['order'], ['mentioned detail PO_NUMBER message_id b2b_mfg_status'], ['date'], ['order'], ['Cancellation'], ['case'], ['issue'], ['hold present'], ['mentioned detail Cuerrently'], ['order'], ['Cancellation'], ['case']], 8: [['detail'], ['case'], ['provided detail'], ['resolving case']], 9: [['INC receipt confirmation'], ['Q4FY15 Normalization issue'], ['quarter wise detail'], ['find']], 10: [['Previous ITDS-Ordertocash-L1'], ['ITDS-COVC-DELIVER-OE Reassignment'], ['level']], 12: [['Previous ITDS-Ordertocash-L1'], ['ITDS-COVC-OM-LSS-BIZ Reassignment'], ['level']], 13: [['user'], ['issue'], ['clarification'], ['ServiceDesk'], ['Case INC'], ['case'], ['BIZ'], ['effort'], ['efficient solution'], ['case'], ['group'], ['resolution'], ['BIZ'], ['update'], ['user'], ['analyzed case'], ['provide'], ['forwarding case']], 14: [['confirmation'], ['home cisco prod'], ['3B2R-AWV -AWV- home cisco prod'], ['3B2R-AWV -AWV-']], 15: [['confirmation']], 16: [['confirmation'], ['resent'], ['resent']], 17: [['confirmation Cisco'], ['message'], ['received']], 18: [['reservation'], ['present'], ['line'], ['reservation']], 19: [['confirmation Cisco'], ['message'], ['received message']], 21: [['confirmation'], ['home cisco prod'], ['PKTR-ADB -ADB-'], ['received home cisco prod']], 22: [['confirmation Cisco'], ['message'], ['confirmation'], ['resent'], ['received message']], 23: [['plan SS'], ['P-date'], ['today'], ['today']], 24: [['So-ss ha'], ['INC'], ['plan SS'], ['P-date'], ['today'], ['Mentioned So-ss ha'], ['today']], 25: [['PR'], ['order'], ['ship'], ['incident'], ['case'], ['Status'], ['indicating'], ['case'], ['question'], ['issue'], ['contact'], ['page'], ['telephone'], ['occur'], ['wit day period'], ['dropped order'], ['Marking incident'], ['resolved case'], ['receive indicating'], ['question'], ['contact'], ['telephone'], ['re-open occur']], 26: [['SO-SS'], ['IB'], ['CC-AWV Promise Date Date'], ['Delivery Creation Date PPR'], ['Null ASN Date Null Ship Confirmation PR'], ['IB'], ['Null'], ['OTM IB'], ['CC-AWV Promise Date Date'], ['PM Delivery Creation Date PPR'], ['Null ASN Date Null Ship Confirmation PM PR'], ['IB'], ['Null']], 27: [['confirmation']], 28: [['confirmation']], 29: [['confirmation Cisco'], ['receive']], 30: [['SO-SS Route Code CC-AWV']], 31: [['SO-SS'], ['CC-AWV Promise Date Order Copy Date'], ['ASN'], ['creation date'], ['Planning Date'], ['PR'], ['date PM'], ['SC'], ['date Null'], ['closure'], ['date PM'], ['received date Null']], 32: [['confirmation Cisco'], ['didn'], ['mentioned']], 33: [['confirmation Cisco'], ['message'], ['received message']], 34: [['confirmation']], 35: [['confirmation Cisco'], ['time'], ['received time']], 36: [['confirmation'], ['retriggered']], 37: [['confirmation Cisco'], ['message resend']], 38: [['message'], ['end'], ['case'], ['mentioned message'], ['Resolving case']], 39: [['confirmation'], ['resent']], 40: [['order'], ['case'], ['case'], ['SO-SS Maneesh'], ['INC so-ss ha'], ['drop'], ['INC Order-SS'], ['re-interfaced'], ['plan'], ['INC so-ss'], ['INC'], ['SO-SS'], ['dropped order'], ['mentioned case'], ['Marking case'], ['re-interfaced']], 41: [['update'], ['INC'], ['SO-SS']], 42: [['order ss8'], ['concern'], ['schedule_s'], ['Bu'], ['JUL'], ['reason'], ['early planning'], ['raised concern'], ['JUL'], ['provide reason']], 43: [['INC update'], ['INC'], ['SO-SS'], ['working']], 44: [['so-ss'], ['INC'], ['SO-SS']],
+45: [['CC-AWV Promise Date Order Copy Date'], ['ASN'], ['creation date'], ['OTM Planning Date'], ['PR'], ['date'], ['SC'], ['date Null'], ['closure'], ['PST'], ['date'], ['received date Null']],
+46: [['so-ss ha'], ['drop'], ['INC Order-SS'], ['re-interfaced'], ['plan'], ['INC so-ss'], ['INC'], ['SO-SS'], ['re-interfaced']], 47: [['Plan SO-SS']],
+48: [['Order-SS'], ['re-interfaced'], ['plan'], ['INC so-ss'], ['INC'], ['SO-SS'], ['re-interfaced']],
+49: [['route change'], ['case'], ['dropped route change'], ['Marking case']],
+50: [['Heres'], ['screenshot'], ['POs'], ['screenshot']]}

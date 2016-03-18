@@ -1,0 +1,9 @@
+USERTYPEID,USERTYPENAME,PROPERTIES,DESCRIPTION,ISDEFAULT,STATEENABLED
+1,SuperUser,1,Has all permissions,1,1
+2,SysAdmin,0,Has permissions for all EMS related operations,1,1
+3,NetworkAdmin,1,Has permissions for all NE related operations,1,1
+4,Operator,2,User who performs network surveillance on allocated NEs,1,1
+5,Provisioner,2,Has permissions to provision NEs,1,1
+6,SecurityAdmin,0,Has permissions for all NE related operations,1,1
+8,SecurityOperator,2,User who performs network surveillance on allocated NEs,1,1
+7,SecurityProvisioner,2,Has permissions to provision NEs,1,1

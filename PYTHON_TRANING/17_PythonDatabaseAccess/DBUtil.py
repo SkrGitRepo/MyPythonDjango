@@ -24,7 +24,7 @@ class DbUtil:
             
         '''
         dbhost='localhost'
-        dbname='pythondb'
+        dbname='javadb'
         dbuser='root'
         dbpwd='root'
         #dbhost = self.dbhost
