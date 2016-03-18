@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block cpo_prod_users %}
+
+{% if error_msg %}
+	<div class="alert alert-dismissible alert-danger">
+	  	<strong>{{ error_msg }} <span class="label label-danger label-as-badge"> {{ usr_type|title }} </span>...!</strong>
+	</div>	
+{% else %}
+	
+	<div class="panel panel-info">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">Cisco Prime Optical : {{ usr_type|title }} (on {{ lifecycle|title }})</h3>
+  		</div>
+  		<div class="panel-body">
+    		<p>This page provides the superset list of all user avaiblable with the access role {{ usr_type|title }} on Cisco Prime Optical ({{ lifecycle }}) servers :<strong> eon-rch1-1-l & eon-rtp5-1-l</strong>  and in OnRamp under resource <strong>cpo-prod-{{ usr_type }}</strong></p>
+			<p><span class="panel panel-info"><strong>{{ usr_type|title }}   </span> :</strong> {{ role_description }} .</p>
+			<p><span class="panel panel-info"><strong>Cisco Prime Optical on ( {{ lifecycle }} ) </span> :</strong> <a href="https://eon-rch1-1-l.cisco.com/OpticalPortal/" target="_blank">eon-rch1-1-l</a>   and   <a href="https://eon-rtp5-1-l.cisco.com/OpticalPortal/" target="_blank">eon-rtp5-1-l</a></p>
+			<p><span class="panel panel-info"><strong>View OnRamp resource </span> :</strong> <a href="http://eman-core.cisco.com/SERVICE/OnRamp/search/cpo-prod-{{ usr_type }}" target="_blank">cpo-prod-{{ usr_type }} </a></p>
+  		</div>
+		</div>
+	<hr/>
+
+	{% if merged_prod1_pord2_userlist %}
+		<table class="table table-striped table-hover ">
+		  <thead>
+		    <tr>
+		      <th>No.</th>
+		      <th>Username</th>
+		      <th>On- eon-rch1-1-l</th>
+		      <th>On- eon-rtp5-1-l</th>
+		      <th>OnRamp User</th>
+		    </tr>
+		  </thead>
+		<tbody>
+		  
+		{% for user in merged_prod1_pord2_userlist %}
+			<tr>
+		    	<td><span class='badge'>{{ forloop.counter }}</span></td>
+		    	<td>{{ user }}</td>
+		    		    
+		    {% if user in cpo_prod1_users %}
+	  			<td><span class="label label-success label-as-badge">{{ usr_type|title }}</span></td>
+	  		{% else %}
+	  			<td><span class="label label-danger">NA</span></td>
+	  		{% endif %}	
+	  		
+	  		{% if user in cpo_prod2_users %}
+	  			<td><span class="label label-success label-as-badge">{{ usr_type|title }}</span></td>
+	  		{% else %}
+	  			<td><span class="label label-danger">NA</span></td>
+	  		{% endif %}	
+		    	
+	  		{% if user in cpo_onramp_prod_users %}
+	  			<td><span class="label label-success label-as-badge">{{ usr_type|title }}</span></td>
+	  		{% else %}
+	  			<td><span class="label label-danger">NA</span></td>
+	  		{% endif %}	
+		    </tr>
+		    
+		{% endfor %}
+		   </tbody>
+		</table>
+	{% else %}
+		<div class="alert alert-dismissible alert-danger">
+	  		<strong>Not found any </strong> <span class="label label-danger label-as-badge"> {{ usr_type|title }} </span>
+		</div>
+	{% endif %}
+{% endif %}
+ 
+{% endblock %} 
