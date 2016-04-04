@@ -1,0 +1,93 @@
+CREATE TABLE CTMANAGER.USER_TABLE
+(
+  USERID               NUMBER(4)                NOT NULL,
+  USERNAME             VARCHAR2(64 BYTE)        NOT NULL,
+  USERPASSWORD         RAW(256),
+  TYPEOFUSER           NUMBER(1),
+  SUBTYPEOFUSER        NUMBER(4),
+  AREANAME             VARCHAR2(64 BYTE),
+  LASTLOGINTIME        DATE,
+  USERLOGINDISABLED    NUMBER(1),
+  USERDESCRIPTION      VARCHAR2(256 BYTE),
+  CMSUSER              VARCHAR2(64 BYTE),
+  CMSPASSWORD          VARCHAR2(64 BYTE),
+  FAILEDATTEMPTS       NUMBER(1)                DEFAULT 0,
+  STATUSOFUSER         NUMBER(1)                DEFAULT 0,
+  PASSWORDSETTIME      DATE,
+  LASTLOGINFAILTIME    DATE,
+  LOCKEDSTATE          NUMBER(1)                DEFAULT 0,
+  PROPAGATETONE        NUMBER(1)                DEFAULT 0,
+  ENABLEPSWDCHANGE     NUMBER(1)                DEFAULT 1,
+  FIRSTUSE             NUMBER(1)                DEFAULT 1,
+  USEGLOBALLOCKOUT     NUMBER(1)                DEFAULT 1,
+  LOCKOUTENABLED       NUMBER(1)                DEFAULT 1,
+  LOCKOUTPERIOD        VARCHAR2(3 BYTE)         DEFAULT 30,
+  USEGLOBALLOGOUT      NUMBER(1)                DEFAULT 1,
+  LOGOUTENABLED        NUMBER(1)                DEFAULT 1,
+  LOGOUTPERIOD         VARCHAR2(4 BYTE)         DEFAULT 60,
+  ENABLEMULTIPLELOGIN  NUMBER(3)                DEFAULT -1,
+  AUTODISABLEINTERVAL  NUMBER(3)                DEFAULT 0
+)
+
+
+CREATE TABLE CTMANAGER.USER_TYPE_TABLE
+(
+  USERTYPEID    NUMBER(4)                       NOT NULL,
+  USERTYPENAME  VARCHAR2(64 BYTE)               NOT NULL,
+  PROPERTIES    NUMBER(1),
+  DESCRIPTION   VARCHAR2(256 BYTE),
+  ISDEFAULT     NUMBER(1)                       DEFAULT (0),
+  STATEENABLED  NUMBER(1)                       DEFAULT (0)
+)
+
+=========================================================================
+MYSQL Conversion:
+---------------------------------------
+CREATE TABLE PYTHONDB.USER_TABLE
+(
+  USERID               INT(4)           NOT NULL,
+  USERNAME             VARCHAR(64)      NOT NULL,
+  USERPASSWORD         TINYBLOB,
+  TYPEOFUSER           INT(1),
+  SUBTYPEOFUSER        INT(4),
+  AREANAME             VARCHAR(64),
+  LASTLOGINTIME        DATETIME,
+  USERLOGINDISABLED    INT(1),
+  USERDESCRIPTION      VARCHAR(256),
+  CMSUSER              VARCHAR(64),
+  CMSPASSWORD          VARCHAR(64),
+  FAILEDATTEMPTS       INT(1)           DEFAULT 0,
+  STATUSOFUSER         INT(1)           DEFAULT 0,
+  PASSWORDSETTIME      DATETIME,
+  LASTLOGINFAILTIME    DATETIME,
+  LOCKEDSTATE          INT(1)           DEFAULT 0,
+  PROPAGATETONE        INT(1)           DEFAULT 0,
+  ENABLEPSWDCHANGE     INT(1)           DEFAULT 1,
+  FIRSTUSE             INT(1)           DEFAULT 1,
+  USEGLOBALLOCKOUT     INT(1)           DEFAULT 1,
+  LOCKOUTENABLED       INT(1)           DEFAULT 1,
+  LOCKOUTPERIOD        VARCHAR(3)       DEFAULT 30,
+  USEGLOBALLOGOUT      INT(1)           DEFAULT 1,
+  LOGOUTENABLED        INT(1)           DEFAULT 1,
+  LOGOUTPERIOD         VARCHAR(4)       DEFAULT 60,
+  ENABLEMULTIPLELOGIN  INT(3)           DEFAULT -1,
+  AUTODISABLEINTERVAL  INT(3)           DEFAULT 0
+);
+-----------------------------
+1) Row inserted Example
+insert into `pythondb`.`user_table` 
+value(48,'sumkuma2','F71EE7882B4E176DA2E7C2EF0AB83DD6AEEE2455AA872BEF94A1FBC8DE4BBCB5870853E6B96831E106E193012866998A',1,1,
+'Domain for sumkuma2','2015-06-12 09:50:06',0,'EMAN:Added:sumkuma2 as SuperUser','','',0,0,'2015-03-07 07:53:23','2015-03-12 07:53:23',0,0,1,0,0,0,'',1,0,'60',-1,0);
+-------------------------------
+CREATE TABLE PYTHONDB.USER_TYPE_TABLE
+(
+  USERTYPEID    INT(4)                       NOT NULL,
+  USERTYPENAME  VARCHAR(64)                  NOT NULL,
+  PROPERTIES    INT(1),
+  DESCRIPTION   VARCHAR(256),
+  ISDEFAULT     INT(1)                       DEFAULT 0,
+  STATEENABLED  INT(1)                       DEFAULT 0
+)
+
+
+
