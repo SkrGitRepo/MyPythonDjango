@@ -2,53 +2,73 @@
 {% load staticfiles %}
 
 {% block search_result %}
+
 	<div>
 		{% if userid and userrole and lifecycle %}
 			<div class="alert alert-dismissible alert-success">
 				<p><strong> User Name</strong> :: {{ userid }} </p>
 				<p><strong> User Role</strong> :: {{ userrole }} </p>
-				<p><strong> server Instance </strong> :: {{ lifecycle }} </p>
+				<p><strong> Server Instance </strong> :: {{ lifecycle }} </p>
+				<!-- <p>USERSTATUS : {{ user_status }} </p> --> 
+				
 			</div>
 		{% endif %}
 			<hr/>
-	<table class="table table-striped table-hover ">
-	  <thead>
-	    <tr>
-	      <th>No.</th>
-	      <th>Username</th>
-	      <th>On- eon-rch1-1-l</th>
-	      <th>On- eon-rtp5-1-l</th>
-	      <th>OnRamp User</th>
-	    </tr>
-	  </thead>
-	<tbody>
-	  
-		{% for user in merged_prod1_pord2_userlist %}
-		<tr>
-	    	<td><span class='badge'>{{ forloop.counter }}</span></td>
-	    	<td>{{ user }}</td>
-	    		    
-	    {% if user in cpo_prod1_superusers %}
-  			<td><span class="label label-success label-as-badge">SuperUser</span></td>
-  		{% else %}
-  			<td><span class="label label-danger">NA</span></td>
-  		{% endif %}	
-  		
-  		{% if user in cpo_prod2_superusers %}
-  			<td><span class="label label-success label-as-badge">SuperUser</span></td>
-  		{% else %}
-  			<td><span class="label label-danger">NA</span></td>
-  		{% endif %}	
-	    	
-  		{% if user in cpo_onramp_prod_superusers %}
-  			<td><span class="label label-success label-as-badge">SuperUser</span></td>
-  		{% else %}
-  			<td><span class="label label-danger">NA</span></td>
-  		{% endif %}	
-	    </tr>
-	    
-	{% endfor %}
-	   </tbody>
-	</table>
+	{% if user_status %}
+		<table class="table table-striped table-hover ">
+		  <thead>
+		    <tr>
+		      <th>Status On</th>
+		      <th>Server Instance</th>
+		      <th>User Role</th>
+		    </tr>
+		  </thead>
+		<tbody>
+
+		
+		  
+		
+		{% for server,userrole in user_status %}
+			<tr>
+		    	<td>{{ server }} </td>
+		    	
+		    	{% if server == 'eon-rtp3-1-l' %}
+		    		<td><span class="label label-success">DEV</span></td>
+		    	{% elif server == 'eon-rtp3-2-l' %} 
+		    		<td><span class="label label-success">DEV</span></td>
+		    	{% elif server == 'eon-rch1-1-l' %} 
+		    		<td><span class="label label-success">PROD</span></td>
+		    	{% elif server == 'eon-rtp5-1-l' %} 
+		    		<td><span class="label label-success">PROD</span></td>
+		    	{% elif server == 'onramp_dev' %} 
+		    		<td><span class="label label-success">DEV</span></td>
+		    	{% elif server == 'onramp_prod' %}
+		    		<td><span class="label label-success">PROD</span></td>
+		    	{% endif %}
+		    	
+		    	{% if userrole == 1 %}
+		    		<td><span class="label label-success">SuperUser</span></td>
+		    	{% elif userrole == 2 %}
+		    		<td><span class="label label-success">SysAdmin</span></td>
+		    	{% elif userrole == 3 %}
+		    		<td><span class="label label-success">NetworkAdmin</span></td>
+		    	{% elif userrole == 4 %}
+		    		<td><span class="label label-success">Operator</span></td>
+		    	{% elif userrole == 5 %}
+		    		<td><span class="label label-success">Provisioner</span></td>
+		    	{% else %}
+		    		<td><span class="label label-danger">NA</span></td>
+		    	{% endif %}
+		    </tr>
+		{% endfor %}
+		   </tbody>
+		</table>
+	{% else %}
+		<div class="alert alert-dismissible alert-danger">
+	  		<p><strong>Not found user </strong> <span class="label label-danger label-as-badge"> {{ userid }} </span> under user-role <span class="label label-danger label-as-badge"> {{userrole }} </span></p>
+		</div>
+	{% endif %}
+	
+	
 			
 {% endblock %}

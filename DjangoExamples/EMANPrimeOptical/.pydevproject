@@ -10,5 +10,5 @@
 <path>/${PROJECT_DIR_NAME}/EMANPrimeOptical/templates</path>
 </pydev_pathproperty>
 <pydev_property name="org.python.pydev.PYTHON_PROJECT_VERSION">python 2.7</pydev_property>
-<pydev_property name="org.python.pydev.PYTHON_PROJECT_INTERPRETER">MyPython27VirtualEnv32Bit</pydev_property>
+<pydev_property name="org.python.pydev.PYTHON_PROJECT_INTERPRETER">C:\Users\sumkuma2\Envs\MyPython27VirtualEnv\Scripts\python.exe</pydev_property>
 </pydev_project>

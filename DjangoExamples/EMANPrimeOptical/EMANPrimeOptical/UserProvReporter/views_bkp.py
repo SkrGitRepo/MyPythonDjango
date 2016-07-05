@@ -3,7 +3,7 @@ from django.template import Context,loader
 from django.http.response import HttpResponse
 import urllib2
 import cx_Oracle
-from EMANPrimeOptical.UserProvReporter.Util import DBUtil 
+#from EMANPrimeOptical.UserProvReporter.Util import DBUtil 
 
 
 

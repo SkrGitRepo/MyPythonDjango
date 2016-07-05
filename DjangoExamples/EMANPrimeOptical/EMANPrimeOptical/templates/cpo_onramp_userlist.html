@@ -1,0 +1,7 @@
+{% if error_msg %}
+	<p>{{ error_msg }}</p>
+{% elif onramp_usr_list %}
+	{% for user in onramp_usr_list %}
+		{{ user }}<br/>
+	{% endfor %}
+{% endif %}
