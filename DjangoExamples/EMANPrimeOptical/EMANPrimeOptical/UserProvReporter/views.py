@@ -107,7 +107,7 @@ def search_user(request):
                                 
                 for subtypeoduser,onramp_resource in cpo_dev_onramp_resource.iteritems():
                     #onramp_provisioned_users = get_cpo_provisioned_userlist(onramp_resource)
-                    onramp_provisioned_users = get_local_cpo_provisioned_userlist(userrole)
+                    onramp_provisioned_users = get_local_cpo_provisioned_userlist(request,userrole)
                     
                     logger.info("All user found under onramp resource : ")
                     logger.debug(onramp_provisioned_users)
@@ -123,7 +123,7 @@ def search_user(request):
                 
                 for subtypeoduser,onramp_resource in cpo_prod_onramp_resource.iteritems():
                     #onramp_provisioned_users = get_cpo_provisioned_userlist(onramp_resource)
-                    onramp_provisioned_users = get_local_cpo_provisioned_userlist(userrole)
+                    onramp_provisioned_users = get_local_cpo_provisioned_userlist(request,userrole)
                     
                     logger.info("All user found under onramp PROD resource : ")
                     logger.debug(onramp_provisioned_users)
@@ -168,7 +168,7 @@ def search_user(request):
                 
                 #cpo_dev_onramp_resource = {1:'cpo-dev-superuser',2:'cpo-dev-sysadmin',3:'cpo-dev-netwrokadmin',4:'cpo-dev-operator',5:'cpo-dev-provisioner',}
                 #onramp_provisioned_users = get_cpo_provisioned_userlist(userrole)
-                onramp_provisioned_users = get_local_cpo_provisioned_userlist(userrole)
+                onramp_provisioned_users = get_local_cpo_provisioned_userlist(request,userrole)
                     
                 logger.info("All user found under onramp resource : ")
                 logger.debug(onramp_provisioned_users)
@@ -208,7 +208,7 @@ def search_user(request):
                 
                 #cpo_dev_onramp_resource = {1:'cpo-dev-superuser',2:'cpo-dev-sysadmin',3:'cpo-dev-netwrokadmin',4:'cpo-dev-operator',5:'cpo-dev-provisioner',}
                 #onramp_provisioned_users = get_cpo_provisioned_userlist(userrole)
-                onramp_provisioned_users = get_local_cpo_provisioned_userlist(userrole)    
+                onramp_provisioned_users = get_local_cpo_provisioned_userlist(request,userrole)    
                 logger.info("All user found under onramp resource : ")
                 logger.debug(onramp_provisioned_users)
                     
@@ -256,7 +256,7 @@ def find_cpo_users(request,lifecycle,usertype):
                 cpo_prod2_users.append(user.username)
                 
             #onramp_provisioned_users = get_cpo_provisioned_userlist(cpo_user_role)
-            onramp_provisioned_users = get_local_cpo_provisioned_userlist(cpo_user_role)
+            onramp_provisioned_users = get_local_cpo_provisioned_userlist(request,cpo_user_role)
             merged_prod_users = merge_userlist(cpo_prod1_users,cpo_prod2_users,onramp_provisioned_users)
             
             cont = Context( {'lifecycle':lifecycle,'usr_type':usertype,'role_description':role_description,'cpo_prod2':cpo_prod2_users,'cpo_prod1_users':cpo_prod1_users,'cpo_prod2_users':cpo_prod2_users,
@@ -286,7 +286,7 @@ def find_cpo_users(request,lifecycle,usertype):
                 cpo_dev2_users.append(user.username)
                 
             #onramp_provisioned_users = get_cpo_provisioned_userlist(cpo_user_role)
-            onramp_provisioned_users = get_local_cpo_provisioned_userlist(cpo_user_role)
+            onramp_provisioned_users = get_local_cpo_provisioned_userlist(request,cpo_user_role)
             
             merged_dev_users = merge_userlist(cpo_dev1_users,cpo_dev2_users,onramp_provisioned_users)
             
@@ -316,9 +316,11 @@ def get_cpo_provisioned_userlist(usertype):
         provisioned_userlist = filter(None,provisioned_userlist)
         return provisioned_userlist
 
-def get_local_cpo_provisioned_userlist(usertype):
+def get_local_cpo_provisioned_userlist(request,usertype):
     cpo_onramp_resource = usertype
-    url = "http://127.0.0.1:8090/prime/optical/onramp/api/usertype/%s"%(cpo_onramp_resource)
+    local_host = request.get_host()
+    print "LOCALHOST::",local_host
+    url = "http://" + local_host + "/prime/optical/onramp/api/usertype/%s"%(cpo_onramp_resource)
     
     cpo_onramp_provisioned_users = urllib2.urlopen(url)
     cpo_provisioned_userlist = cpo_onramp_provisioned_users.read()
