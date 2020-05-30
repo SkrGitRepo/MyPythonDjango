@@ -80,7 +80,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'PYTHONDB',
-        'USER': 'root',
+        'USER': 'sumkuma2',
         'PASSWORD': 'cisco123',
         'HOST': 'localhost',
         'PORT': '',
@@ -89,7 +89,7 @@ DATABASES = {
     'eon_rch1_1_l':{
          'ENGINE': 'django.db.backends.mysql',
         'NAME': 'PYTHONDB',
-        'USER': 'root',
+        'USER': 'sumkuma2',
         'PASSWORD': 'cisco123',
         'HOST': 'localhost',
         'PORT': '',
@@ -98,7 +98,7 @@ DATABASES = {
     'eon_rtp5_1_l':{
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'JAVADB',
-        'USER': 'root',
+        'USER': 'sumkuma2',
         'PASSWORD': 'cisco123',
         'HOST': 'localhost',
         'PORT': '',
@@ -107,7 +107,7 @@ DATABASES = {
     'eon_rtp3_1_l':{
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'PYTHONDB',
-        'USER': 'root',
+        'USER': 'sumkuma2',
         'PASSWORD': 'cisco123',
         'HOST': 'localhost',
         'PORT': '',
@@ -116,7 +116,7 @@ DATABASES = {
     'eon_rtp3_2_l':{
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'JAVADB',
-        'USER': 'root',
+        'USER': 'sumkuma2',
         'PASSWORD': 'cisco123',
         'HOST': 'localhost',
         'PORT': '',
@@ -172,7 +172,8 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': 'C:\Users\sumkuma2\git\MyPythonDjango\DjangoExamples\EMANPrimeOptical\EMANPrimeOptical.log',
+            #'filename': 'C:\Users\sumkuma2\git\MyPythonDjango\DjangoExamples\EMANPrimeOptical\EMANPrimeOptical.log',
+            'filename': '/Users/sumapr/git/MyPythonDjango/DjangoExamples/EMANPrimeOptical/EMANPrimeOptical.log',
             'formatter': 'verbose'
         },
     },
